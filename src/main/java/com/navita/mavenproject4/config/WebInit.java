@@ -21,9 +21,7 @@ public class WebInit implements WebApplicationInitializer{
 
     @Override
     public void onStartup(ServletContext sc) throws ServletException {
-        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(RootConfig.class);
-        sc.addListener(new ContextLoaderListener(rootContext));
+        
         
         AnnotationConfigWebApplicationContext dispatcherServlet = new AnnotationConfigWebApplicationContext();
         dispatcherServlet.register(MvcConfig.class);
@@ -31,6 +29,10 @@ public class WebInit implements WebApplicationInitializer{
         
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
+        
+        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+        rootContext.register(JpaConfig.class);
+        sc.addListener(new ContextLoaderListener(rootContext));
         
     }
     
