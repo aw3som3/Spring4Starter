@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -21,6 +23,7 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
  * @author wahyu
  */
 @Configuration
+@EnableWebMvc
 @ComponentScan(basePackages = { "com.navita.mavenproject4.controller" })
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
@@ -32,7 +35,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+       registry.addResourceHandler("/resources/**").addResourceLocations("/resources/"); 
     }
 
     @Bean

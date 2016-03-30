@@ -24,9 +24,11 @@ public class WebInit implements WebApplicationInitializer{
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(RootConfig.class);
         sc.addListener(new ContextLoaderListener(rootContext));
+        
         AnnotationConfigWebApplicationContext dispatcherServlet = new AnnotationConfigWebApplicationContext();
         dispatcherServlet.register(MvcConfig.class);
         ServletRegistration.Dynamic dispatcher = sc.addServlet("dispatcher", new DispatcherServlet(dispatcherServlet));
+        
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
         
