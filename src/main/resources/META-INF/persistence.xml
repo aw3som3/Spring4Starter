@@ -11,6 +11,7 @@
     <class>com.navita.mavenproject4.entity.SUser</class>
     <class>com.navita.mavenproject4.entity.SParam</class>
     <class>com.navita.mavenproject4.entity.SImages</class>
+    <class>com.navita.mavenproject4.entity.Test1</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/shop?zeroDateTimeBehavior=convertToNull"/>

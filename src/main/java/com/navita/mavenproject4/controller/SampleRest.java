@@ -5,8 +5,11 @@
  */
 package com.navita.mavenproject4.controller;
 
-import com.navita.mavenproject4.entity.SUser;
-import com.navita.mavenproject4.repository.SUserRepository;
+
+import com.navita.mavenproject4.entity.Test1;
+import com.navita.mavenproject4.entity.Test1PK;
+
+import com.navita.mavenproject4.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,10 +23,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SampleRest {
     
-    private @Autowired SUserRepository su;
+
+    private @Autowired TestRepository tr;
     
-    @RequestMapping(value = "/rest1", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody SUser getAllUser(){
-        return su.findOne(1);
+
+    @RequestMapping(value = "/rest", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody Test1 saveTest(){
+        Test1 test = new Test1();
+        Test1PK tpk = new Test1PK();
+        tpk.setId2(1);
+        test.setTest1PK(tpk);
+        Test1 afterSave = tr.saveAndFlush(test);
+        return afterSave;
     }
 }

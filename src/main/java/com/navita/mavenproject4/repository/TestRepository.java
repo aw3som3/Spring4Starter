@@ -5,17 +5,14 @@
  */
 package com.navita.mavenproject4.repository;
 
-import com.navita.mavenproject4.entity.SUser;
-import java.util.List;
+import com.navita.mavenproject4.entity.Test1;
+import com.navita.mavenproject4.entity.Test1PK;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author wahyu
  */
-
-public interface SUserRepository extends JpaRepository<SUser,Integer>{
+public interface TestRepository extends JpaRepository<Test1,Test1PK> {
     
 }
